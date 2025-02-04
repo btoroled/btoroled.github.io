@@ -1,36 +1,76 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
     <head>
+        <!-- Meta tags-->
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Benjamin Toro Leddihn Portafolio Website" name="description">
+        <meta content="" name="keywords"> 
+
+        <!-- Title -->
         <title>Home | Ben Toro Leddihn</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="script.js"></script>
+
+        <!--Fav Icons-->
+        <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <!--Fonts-->
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- CSS VENDORS -->
+
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+        <!-- CSS-->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+        <!--JS-->
+        <script src="assets/js/script.js"></script>
     </head>
-    <body>
-        <div class="menu">
-            <nav>
+    <body class="index-page">
+        <header id="header" class="header dark-background d-flex flex-column">
+            <i class="header-toggle d-xl-none bi bi-list"></i>
+            <div class="profile-img">
+                <img src="assets/img/LOGO.png" alt="Profile Image" class="img-fluid rounded-circle"> 
+            </div>
+            <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+                <h1>Benjamin Toro Leddihn</h1>
+            </a>
+            <div class="social-links text-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li>Home</li>
-                    <li>Sobre Ben</li>
-                    <li>Skills</li>
-                    <li>CV</li>
-                    <li>Proyectos</li>
-                    <li>Contacto</li>
+                    <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+                    <li><a href="#about"><i class="bi bi-person navicon"></i>About Ben</a></li>
+                    <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i>Resume</a></li>
+                    <li><a href="#portofolio"><i class="bi bi-images navicon"></i>Portofolio</a></li>
+                    <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i>Services</a></li>
+                    <li><a href="#contact"><i class="bi bi-envelope navicon"></i>Contacto</a></li>
                 </ul>
             </nav>
-        </div>
+        </header>
+        <main class="main">
+            <!--Hero section-->
+            <section id="hero" class="hero section dark-background">
+                <img src="assets/img/hero-bg.jpg" alt="background-image" data-aos="fade-in" class="">
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
+                    <h2>Benjamin Toro Leddihn</h2>
+                    <p>I'm <span class="typed" data-typed-items="Developer, Freelancer, Data-Analyst">Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+                </div>
+            </section><!--End Hero section-->
 
-        <section id="Home">
-            <h1>Benjamin Toro Leddihn</h1>
-        </section>
-        <section id="SobreBen">
-        </section>
-        <section id="Skills">
-        </section>
-        <section id="Proyectos">
-        </section>
-        <section id="CV">
-        </section>
-        <section id="Contacto">
-        </section>
-       
+            <!--About section-->
+            
+            <!--End About Section-->
+        </main>
     </body>
 </html>
