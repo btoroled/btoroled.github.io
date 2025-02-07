@@ -1,3 +1,14 @@
+/*
+ * Sections:
+ * 1. Root Variables: Define CSS variables for fonts, colors, and other global styles.
+ * 2. Global Colors Override: Define light and dark background color schemes.
+ * 3. General Styling: Basic styles for body, links, and headings.
+ * 4. Global Headers: Styles for the header section, including profile image, logo, and social links.
+ * 6. Email Form: Styles for the email form, including error, sent, and loading messages.
+ */
+
+
+/* 1. Root Variables*/
 :root{
     /*NAV FONTS */
     --default-font: "Roboto", system-ui, -apple-system, "Segoue UI", Roboto, Arial, "Helvetica Neue", sans-serif;
@@ -10,16 +21,24 @@
     --accent-color: #DC143C;
     --surface-color: #151f2b;
     --contrast-color: #FFFFFF;
-
+    /*NAV COLORS*/
     --nav-color: #a8a9b4;
     --nav-hover-color: #ffffff;
     --nav-mobile-background-color: #1E1E1E;
     --nav-mobile-background-hover-color: #ffffff;
-    
+    --nav-dropdown-color: #ffffff;
+    --nav-dropdown-hover-color: #DC143C;
+    --nav-dropdown-background-color: #1E1E1E;
+
+
+    /*OTHER COLORS*/
     scroll-behavior: smooth;
 }
 
-/*Global colors overide - Rembember to delete */ 
+/*
+Global colors overide - Rembember to delete 
+ONLY USE THIS IF YOU WANT TO CHANGE THE BACKGROUND COLOR
+*/ 
 
 .light-background {
     --background-color: #f4fafd;
@@ -34,7 +53,38 @@
     --contrast-color: #ffffff;
 }
 
-/*GENERAL STYLING*/
+/*Preloader*/
+#preloader{
+    position: fixed;
+    inset: 0;
+    z-index: 9999999;
+    overflow: hidden;
+    background-color: var(--background-color);
+    transition: all 0.6s ease-out;
+}
+#preloader:before{
+    content: "";
+    position: fixed;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border: 6px solid #ffffff;
+    border-color: var(--accent-color) transparent var(--accent-color) transparent;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*3. GENERAL STYLING*/
 
 body{
     color: var(--default-color);
@@ -57,7 +107,40 @@ h1, h2, h3, h4, h5, h6{
     font-family: var(--heading-font);
 }
 
-/* Global headers*/
+/*Global Page titles*/
+.page-title{
+    color: var(--default-color);
+    background-color: var(--background-color);
+    padding: 25px 0;
+    position: relative;
+}
+
+.page-title h1{
+    font-size: 24px;
+    font-weight: 700;
+}
+.page-title .breadcrumbs ol{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.page-title .breadcrumbs ol li+li{
+    padding-left: 10px;
+}
+
+.page-title .breadcrumbs ol li+li:before{
+    content: "/";
+    display: inline-block;
+    padding-right: 10px;
+    color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+/* 4. Global headers*/
 .header{
     color: var(--default-color);
     background-color: var(--background-color);
@@ -109,8 +192,195 @@ h1, h2, h3, h4, h5, h6{
     background: var(--accent-color);
     color: var(--contrast-color);
 }
+@media (min-width: 1200px){
 
-/*Email Form*/
+    .header~main, 
+    .header~footer{
+        margin-left: 300px;
+    }
+}
+@media (max-width: 1199px){
+    .header~main,
+    .header~footer{
+        left: -100%;
+    }
+}
+
+.header.header-show{
+    left: 0;
+}
+
+.header .header-toogle{
+    color: var(--contrast-color);
+    background-color: var(--accent-color);
+    top: 15px;
+    right: 15px;
+    z-index: 10000;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    transition: background-color 0.3s;
+}
+
+.header .header-toogle:hover{
+    color: var(--contrast-color);
+    background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+/*5. NAV STYLE*/
+
+.mobile-nav-toogle{
+    display: none;
+}
+
+.navmenu{
+    padding: 0;
+    z-index: 9997;
+}
+
+.navmenu ul{
+    list-style: none;
+    padding: 0 0 20px 0;
+    margin: 0;
+}
+
+.navmenu a, 
+.navmenu a:focus {
+    color: var(--nav-color);
+    padding: 15px 10px;
+    font-family: var(--nav-font);
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    transition: 0.3s;
+    width: 100%;
+}
+.navmenu a .navicon, 
+.navmenu a:focus .navicon{
+    margin-right: 10px;
+    font-size: 20px;
+}
+.navmenu a .toogle-dropdown,
+.navmenu a:focus .toogle-dropdown{
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    font-size: 12px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.navmenu a .toogle-dropdown:hover,
+.navmenu a:focus .toogle-dropdown:hover{
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+}
+.navmenu a:hover,
+.navmenu .active, 
+.navmenu .active:focus{
+    color: var(--nav-hover-color);
+}
+
+.navmenu a:hover .navicon, 
+.navmenu .active .navicon,
+.navmenu .active:focus .navicon{
+    color: var(--accent-color);
+}
+
+.navmenu .active .toogle-dropdown,
+.navmenu .active:focus .toogle-dropdown{
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    transform: rotate(180deg);
+}
+
+.navmenu .dropdown{
+    display: block;
+}
+
+.navmenu .dropdown a,
+.navmenu .dropdown a:focus{
+    color: var(--nav-dropdown-color);
+}
+
+.navmenu .dropdown a:hover,
+.navmenu .dropdown .active,
+.navmenu .dropdown .active:focus{
+    color: var(--nav-dropdown-hover-color);
+}
+
+.navmenu .dropdown ul ul {
+    background-color: rgba(33, 37, 41, 0.01);
+}
+.navmenu .dropdown>.dropdown-active{
+    background-color: rgba(33, 37, 41, 0.03);
+    display: block;
+}
+
+/*6.Footer*/
+
+
+.footer{
+    background-color: var(--background-color);
+    background-color: var(--background-color);
+    font-size: 14px;
+    padding: 40px 0;
+    position: relative;
+    border-top: 1px solid color-mix(in srgb, var(--background-color) , transparent 90%);
+}
+.footer .copyright p{
+    margin-bottom: 0;
+}
+.footer .credits{
+    margin-top: 4px;
+    font-size: 13px;
+    text-align: center;
+}
+
+/*Scroll Top button*/
+.scroll-top{
+    position: fixed;
+    bottom: -15px;
+    right: 15px;
+    opacity: 0;
+    visibility: hidden;
+    background-color: var(--accent-color);
+    z-index: 99999;
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+.scroll-top i{
+    color: var(--contrast-color);
+    font-size: 24px;
+    line-height: 0;
+}
+.scroll-top:hover{
+    background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+    color: var(--contrast-color);
+}
+.scroll-top.active{
+    visibility: visible;
+    opacity: 1;
+    bottom: 15px;
+}
+
+
+
+/*7. Email Form*/
 .php-email-form .error-message{
     display: none;
     color: #ffffff;
@@ -155,3 +425,11 @@ h1, h2, h3, h4, h5, h6{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+/*MEDIA*/
+@media screen and (max-width: 768px) {
+    [data-aos-delay] {
+      transition-delay: 0 !important;
+    }
+  }
