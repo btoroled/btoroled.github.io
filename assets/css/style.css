@@ -23,7 +23,7 @@
     --background-color: #040b14;
     --default-color: #FFFFFF;
     --heading-color: #FFFFFF;
-    --accent-color: #DC143C;
+    --accent-color: #dc143c;
     --surface-color: #151f2b;
     --contrast-color: #FFFFFF;
     /*NAV COLORS*/
@@ -34,7 +34,7 @@
     --nav-dropdown-color: #ffffff;
     --nav-dropdown-hover-color: #DC143C;
     --nav-dropdown-background-color: #1E1E1E;
-
+    
 
     /*OTHER COLORS*/
     scroll-behavior: smooth;
@@ -473,7 +473,7 @@ section, .section{
 }
 
 .skills .progress .skill{
-    color: var(--heading-color);
+    color: black;
     padding: 0;
     margin: 0 0 6px 0;
     text-transform: uppercase;
@@ -497,6 +497,7 @@ section, .section{
     transition: 0.9s;
     background-color: var(--accent-color);
 }
+
 
 /*Resume Section*/
 .resume .resume-title{
@@ -817,7 +818,7 @@ section, .section{
     font-size: 20px;
     margin-right: 8px;
     color: var(--accent-color);
-    
+
 }
 
 /*Testimonials Section*/
@@ -1088,7 +1089,7 @@ section, .section{
     100% { transform: rotate(360deg); }
 }
 
-/* 9. Preloader
+/* 9. Preloader*/
 #preloader{
     position: fixed;
     inset: 0;
@@ -1118,7 +1119,7 @@ section, .section{
         transform: rotate(360deg);
     }
 }
-*/
+
 /* 10. Media Queries */
 @media screen and (max-width: 768px) {
     [data-aos-delay] {
